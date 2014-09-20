@@ -327,9 +327,13 @@ public final class BitMatrix implements Cloneable {
     return result.toString();
   }
 
-  @Override
+//  @Override
   public BitMatrix clone() {
-    return new BitMatrix(width, height, rowSize, bits.clone());
+	  
+	int[] bitsClone = new int[bits.length];
+	System.arraycopy(bits, 0, bitsClone, 0, bits.length);
+	    
+    return new BitMatrix(width, height, rowSize, bitsClone);
   }
 
 }
